@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Таърихи Тоҷикон - История Таджиков</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --almond-50: #fdfaf3;
+        --almond-100: #f6f0e3;
+        --almond-200: #eee2cc;
+        --almond-300: #d9c4a8;
+        --almond-400: #caa982;
+        --almond-500: #c67d49;
+        --almond-600: #a6714c;
+        --almond-700: #87593b;
+        --almond-800: #6b4631;
+        --almond-900: #433f33;
+        --almond-950: #2c1c16;
+
+        --primary: var(--almond-500);
+        --primary-dark: var(--almond-600);
+        --text: var(--almond-900);
+        --text-light: var(--almond-700);
+        --background: var(--almond-50);
+        --card-bg: white;
+        --border: var(--almond-200);
+        --shadow: rgba(0, 0, 0, 0.1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: var(--text);
+        background-color: var(--background);
+        line-height: 1.6;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Header */
+      header {
+        background-color: var(--card-bg);
+        box-shadow: 0 2px 10px var(--shadow);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 100;
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+      }
+
+      .logo i {
+        margin-right: 10px;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+        gap: 30px;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: var(--text);
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      nav a:hover {
+        color: var(--primary);
+      }
+
+      .language-switcher {
+        display: flex;
+        gap: 10px;
+      }
+
+      .lang-btn {
+        background: none;
+        border: 1px solid var(--border);
+        padding: 5px 10px;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-size: 0.8rem;
+      }
+
+      .lang-btn.active {
+        background-color: var(--primary);
+        color: white;
+        border-color: var(--primary);
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--text);
+      }
+
+      /* Hero Section */
+      .hero {
+        padding: 150px 0 80px;
+        display: flex;
+        align-items: center;
+        gap: 40px;
+      }
+
+      .hero-content {
+        flex: 1;
+      }
+
+      .hero-image {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        color: var(--text);
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        color: var(--text-light);
+        margin-bottom: 30px;
+      }
+
+      .btn {
+        display: inline-block;
+        background-color: var(--primary);
+        color: white;
+        padding: 12px 30px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s;
+        border: none;
+        cursor: pointer;
+      }
+
+      .btn:hover {
+        background-color: var(--primary-dark);
+        transform: translateY(-2px);
+      }
+
+      .phone-mockup {
+        width: 300px;
+        height: 500px;
+        background: linear-gradient(
+          145deg,
+          var(--almond-100),
+          var(--almond-200)
+        );
+        border-radius: 40px;
+        position: relative;
+        box-shadow: 0 20px 40px var(--shadow);
+        border: 10px solid var(--almond-300);
+        overflow: hidden;
+      }
+
+      .phone-screen {
+        width: 100%;
+        height: 100%;
+        background: url("./photo/Screenshot_1758564145.png") center/cover
+          no-repeat;
+        border-radius: 30px;
+      }
+
+      /* Sections */
+      section {
+        padding: 80px 0;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+        color: var(--text);
+        margin-bottom: 15px;
+      }
+
+      .section-title p {
+        color: var(--text-light);
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      /* Features */
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .feature-card {
+        background-color: var(--card-bg);
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0 10px 20px var(--shadow);
+        transition: transform 0.3s;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .feature-icon {
+        width: 60px;
+        height: 60px;
+        background-color: var(--almond-100);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        color: var(--primary);
+        font-size: 1.5rem;
+      }
+
+      .feature-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+      }
+
+      .feature-card p {
+        color: var(--text-light);
+      }
+
+      /* Screenshots */
+      .screenshots {
+        background-color: var(--almond-100);
+      }
+
+      .screenshot-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+      }
+
+      .screenshot-item {
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 20px var(--shadow);
+        transition: transform 0.3s;
+      }
+
+      .screenshot-item:hover {
+        transform: translateY(-5px);
+      }
+
+      .screenshot-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      /* Contact */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+      }
+
+      .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .contact-icon {
+        width: 50px;
+        height: 50px;
+        background-color: var(--almond-100);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+        font-size: 1.2rem;
+      }
+
+      .contact-text h4 {
+        margin-bottom: 5px;
+      }
+
+      .contact-text p {
+        color: var(--text-light);
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--almond-800);
+        color: white;
+        padding: 40px 0;
+      }
+
+      .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .footer-logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+
+      .footer-links a {
+        color: white;
+        text-decoration: none;
+        margin-left: 20px;
+      }
+
+      .footer-links a:hover {
+        text-decoration: underline;
+      }
+
+      .copyright {
+        text-align: center;
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      /* Responsive */
+      @media (max-width: 992px) {
+        .hero {
+          flex-direction: column;
+          text-align: center;
+          padding: 120px 0 60px;
+        }
+
+        .hero-content,
+        .hero-image {
+          flex: none;
+          width: 100%;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        nav ul {
+          display: none;
+        }
+
+        .mobile-menu-btn {
+          display: block;
+        }
+
+        .header-content {
+          padding: 15px 0;
+        }
+
+        .section-title h2 {
+          font-size: 2rem;
+        }
+
+        .footer-content {
+          flex-direction: column;
+          gap: 20px;
+          text-align: center;
+        }
+
+        .footer-links {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 15px;
+        }
+
+        .footer-links a {
+          margin: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <a href="#" class="logo">
+            <i class="fas fa-book-open"></i>
+            <span data-translate="app_name">Таърихи Тоҷикон</span>
+          </a>
+
+          <nav>
+            <ul>
+              <li><a href="#about" data-translate="nav_about">О проекте</a></li>
+              <li>
+                <a href="#features" data-translate="nav_features"
+                  >Возможности</a
+                >
+              </li>
+              <li>
+                <a href="#screenshots" data-translate="nav_screenshots"
+                  >Скриншоты</a
+                >
+              </li>
+              <li>
+                <a href="#contact" data-translate="nav_contact">Контакты</a>
+              </li>
+            </ul>
+          </nav>
+
+          <div class="language-switcher">
+            <button class="lang-btn active" data-lang="ru">RU</button>
+            <button class="lang-btn" data-lang="tj">TJ</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+          </div>
+
+          <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1 data-translate="hero_title">
+            Изучайте историю таджикского народа
+          </h1>
+          <p data-translate="hero_subtitle">
+            Приложение с богатой коллекцией материалов по истории, культуре и
+            наследию таджиков
+          </p>
+          <a href="#download" class="btn" data-translate="download_btn"
+            >Скачать приложение</a
+          >
+        </div>
+        <div class="hero-image">
+          <div class="phone-mockup">
+            <div class="phone-screen"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+      <div class="container">
+        <div class="section-title">
+          <h2 data-translate="about_title">О проекте</h2>
+          <p data-translate="about_text">
+            «Таърихи Тоҷикон» - это современное приложение, созданное для
+            сохранения и популяризации богатого исторического и культурного
+            наследия таджикского народа.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+      <div class="container">
+        <div class="section-title">
+          <h2 data-translate="features_title">Возможности приложения</h2>
+          <p data-translate="features_subtitle">
+            Откройте для себя все функции нашего приложения
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-book"></i>
+            </div>
+            <h3 data-translate="feature1_title">Книга «Тоҷикон»</h3>
+            <p data-translate="feature1_text">
+              Полная электронная версия известной книги с интерактивными
+              элементами и комментариями
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-film"></i>
+            </div>
+            <h3 data-translate="feature2_title">Reels с материалами</h3>
+            <p data-translate="feature2_text">
+              Короткие видео с шеър, рубои, ғазал и интересными историческими
+              фактами
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <h3 data-translate="feature3_title">Наши предки</h3>
+            <p data-translate="feature3_text">
+              Раздел с биографиями великих исторических личностей таджикского
+              народа
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <h3 data-translate="feature3_title">Наши предки</h3>
+            <p data-translate="feature3_text">
+              Раздел с биографиями великих исторических личностей таджикского
+              народа
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-user-circle"></i>
+            </div>
+            <h3 data-translate="feature4_title">Личный профиль</h3>
+            <p data-translate="feature4_text">
+              Отслеживайте свой прогресс, достижения и настройте приложение под
+              себя
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-user-circle"></i>
+            </div>
+            <h3 data-translate="feature4_title">Личный профиль</h3>
+            <p data-translate="feature4_text">
+              Отслеживайте свой прогресс, достижения и настройте приложение под
+              себя
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section id="screenshots" class="screenshots">
+      <div class="container">
+        <div class="section-title">
+          <h2 data-translate="screenshots_title">Скриншоты приложения</h2>
+          <p data-translate="screenshots_subtitle">
+            Посмотрите, как выглядит приложение изнутри
+          </p>
+        </div>
+
+        <div class="screenshot-grid">
+          <div style="border-radius: 15px" class="screenshot-item">
+            <img
+              src="./photo/Screenshot_1758564152.png"
+              alt="Скриншот приложения 2"
+            />
+          </div>
+          <div style="border-radius: 15px" class="screenshot-item">
+            <img
+              src="./photo/Screenshot_1758564182.png"
+              alt="Скриншот приложения 1"
+            />
+          </div>
+          <div style="border-radius: 15px" class="screenshot-item">
+            <img
+              src="./photo/Screenshot_1758564156.png"
+              alt="Скриншот приложения 3"
+            />
+          </div>
+          <div style="border-radius: 15px" class="screenshot-item">
+            <img
+              src="./photo/Screenshot_1758564176.png"
+              alt="Скриншот приложения 4"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-title">
+          <h2 data-translate="contact_title">Свяжитесь с нами</h2>
+          <p data-translate="contact_subtitle">
+            Есть вопросы или предложения? Мы всегда на связи!
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-text">
+                <h4 data-translate="contact_email">Email</h4>
+                <p>abdulloevcompany@gmail.com</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fab fa-telegram"></i>
+              </div>
+              <div class="contact-text">
+                <h4>Telegram</h4>
+                <p>@abdulloevcompanybot</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="download-section" id="download">
+            <h3 data-translate="download_title">Скачайте приложение</h3>
+            <p data-translate="download_text">
+              Доступно для iOS и Android устройств
+            </p>
+            <div style="margin-top: 20px">
+              <a href="#" class="btn" data-translate="download_btn"
+                >Скачать сейчас</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">Таърихи Тоҷикон</div>
+          <div class="footer-links">
+            <a href="#" data-translate="footer_privacy"
+              >Политика конфиденциальности</a
+            >
+            <a href="#" data-translate="footer_terms">Условия использования</a>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>
+            &copy; 2025 Шохматн Таърихи Тоҷикон.
+            <span data-translate="footer_rights">Все права защищены</span>.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Translation data
+      const translations = {
+        ru: {
+          app_name: "Таърихи Тоҷикон",
+          nav_about: "О проекте",
+          nav_features: "Возможности",
+          nav_screenshots: "Скриншоты",
+          nav_contact: "Контакты",
+          hero_title: "Изучайте историю таджикского народа",
+          hero_subtitle:
+            "Приложение с богатой коллекцией материалов по истории, культуре и наследию таджиков",
+          download_btn: "Скачать приложение",
+          about_title: "О проекте",
+          about_text:
+            "«Таърихи Тоҷикон» - это современное приложение, созданное для сохранения и популяризации богатого исторического и культурного наследия таджикского народа.",
+          features_title: "Возможности приложения",
+          features_subtitle: "Откройте для себя все функции нашего приложения",
+          feature1_title: "Книга «Тоҷикон»",
+          feature1_text:
+            "Полная электронная версия известной книги с интерактивными элементами и комментариями",
+          feature2_title: "Reels с материалами",
+          feature2_text:
+            "Короткие видео с шеър, рубои, ғазал и интересными историческими фактами",
+          feature3_title: "Наши предки",
+          feature3_text:
+            "Раздел с биографиями великих исторических личностей таджикского народа",
+          feature4_title: "Личный профиль",
+          feature4_text:
+            "Отслеживайте свой прогресс, достижения и настройте приложение под себя",
+          screenshots_title: "Скриншоты приложения",
+          screenshots_subtitle: "Посмотрите, как выглядит приложение изнутри",
+          contact_title: "Свяжитесь с нами",
+          contact_subtitle: "Есть вопросы или предложения? Мы всегда на связи!",
+          contact_email: "Email",
+          download_title: "Скачайте приложение",
+          download_text: "Доступно для iOS и Android устройств",
+          footer_privacy: "Политика конфиденциальности",
+          footer_terms: "Условия использования",
+          footer_rights: "Все права защищены",
+        },
+        tj: {
+          app_name: "Таърихи Тоҷикон",
+          nav_about: "Дар бораи лоиҳа",
+          nav_features: "Имкониятҳо",
+          nav_screenshots: "Аксҳои экран",
+          nav_contact: "Тамос",
+          hero_title: "Таърихи халқи тоҷикро омӯзед",
+          hero_subtitle:
+            "Барномае бо гирдоварии бой аз материалҳо дар бораи таърих, фарҳанг ва мероси тоҷикон",
+          download_btn: "Боргирӣ кардани барнома",
+          about_title: "Дар бораи лоиҳа",
+          about_text:
+            "«Таърихи Тоҷикон» - барномаи муосирест, ки барои нигоҳдорӣ ва маъмул кардани мероси бойи таърихӣ ва фарҳангии халқи тоҷик эҷод шудааст.",
+          features_title: "Имкониятҳои барнома",
+          features_subtitle: "Ҳамаи вазифаҳои барномаи моро кашф кунед",
+          feature1_title: "Китоби «Тоҷикон»",
+          feature1_text:
+            "Версияи пурраи электронии китоби машҳур бо унсурҳои интерактивӣ ва шарҳҳо",
+          feature2_title: "Reels бо материалҳо",
+          feature2_text:
+            "Видеоҳои кӯтоҳ бо шеър, рубоӣ, ғазал ва ҳақиқатҳои таърихии ҷолиб",
+          feature3_title: "Пешниёгони мо",
+          feature3_text:
+            "Бахше бо тарҷимаҳоли шахсиятҳои бузурги таърихии халқи тоҷик",
+          feature4_title: "Профили шахсӣ",
+          feature4_text:
+            "Пешрафт, дастовардҳои худро пайгирӣ кунед ва барномаро барои худ танзим кунед",
+          screenshots_title: "Аксҳои экрани барнома",
+          screenshots_subtitle:
+            "Бинед, ки барнома аз дарун чӣ гуна ба назар мерасад",
+          contact_title: "Бо мо тамос гиред",
+          contact_subtitle: "Савол ё пешниҳод доред? Мо ҳамеша дар дастрасем!",
+          contact_email: "Почтаи электронӣ",
+          download_title: "Барномаро боргирӣ кунед",
+          download_text: "Барои дастгоҳҳои iOS ва Android дастрас аст",
+          footer_privacy: "Сиёсати махфият",
+          footer_terms: "Шартҳои истифода",
+          footer_rights: "Ҳама ҳуқуқҳо ҳифз шудаанд",
+        },
+        en: {
+          app_name: "History of Tajiks",
+          nav_about: "About",
+          nav_features: "Features",
+          nav_screenshots: "Screenshots",
+          nav_contact: "Contact",
+          hero_title: "Explore the history of the Tajik people",
+          hero_subtitle:
+            "An app with a rich collection of materials on the history, culture and heritage of Tajiks",
+          download_btn: "Download App",
+          about_title: "About the Project",
+          about_text:
+            "«History of Tajiks» is a modern application created to preserve and popularize the rich historical and cultural heritage of the Tajik people.",
+          features_title: "App Features",
+          features_subtitle: "Discover all the functions of our application",
+          feature1_title: "Book «Tojikon»",
+          feature1_text:
+            "Complete electronic version of the famous book with interactive elements and comments",
+          feature2_title: "Reels with materials",
+          feature2_text:
+            "Short videos with she'r, ruboi, ghazal and interesting historical facts",
+          feature3_title: "Our Ancestors",
+          feature3_text:
+            "Section with biographies of great historical figures of the Tajik people",
+          feature4_title: "Personal Profile",
+          feature4_text:
+            "Track your progress, achievements and customize the app for yourself",
+          screenshots_title: "App Screenshots",
+          screenshots_subtitle: "See what the app looks like from the inside",
+          contact_title: "Contact Us",
+          contact_subtitle:
+            "Have questions or suggestions? We are always in touch!",
+          contact_email: "Email",
+          download_title: "Download the App",
+          download_text: "Available for iOS and Android devices",
+          footer_privacy: "Privacy Policy",
+          footer_terms: "Terms of Use",
+          footer_rights: "All rights reserved",
+        },
+      };
+
+      // Language switching functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const langButtons = document.querySelectorAll(".lang-btn");
+        let currentLang = "ru";
+
+        // Set language function
+        function setLanguage(lang) {
+          currentLang = lang;
+
+          // Update buttons
+          langButtons.forEach((btn) => {
+            if (btn.dataset.lang === lang) {
+              btn.classList.add("active");
+            } else {
+              btn.classList.remove("active");
+            }
+          });
+
+          // Update all translatable elements
+          document.querySelectorAll("[data-translate]").forEach((element) => {
+            const key = element.getAttribute("data-translate");
+            if (translations[lang][key]) {
+              element.textContent = translations[lang][key];
+            }
+          });
+        }
+
+        // Add click events to language buttons
+        langButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            setLanguage(this.dataset.lang);
+          });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+        const nav = document.querySelector("nav ul");
+
+        mobileMenuBtn.addEventListener("click", function () {
+          nav.style.display = nav.style.display === "flex" ? "none" : "flex";
+        });
+      });
+    </script>
+  </body>
+</html>
